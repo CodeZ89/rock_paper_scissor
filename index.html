@@ -1,0 +1,75 @@
+<script>
+    let playerScore = 0;
+    let computerScore = 0;
+    const computerSelection = computerPlay();
+
+    function playGame() {
+
+        for (i = 0; i < 5; i++) {
+            let answer = prompt("Rock, Paper, Scissor, Shoot!:");
+            let playerSelection = answer;
+            playRound(playerSelection, computerSelection);
+            computerPlay();
+
+        }
+        if (playerScore > computerScore) {
+            console.log(playerScore + ' to ' + computerScore + ' YOU WIN!!')
+        } else if (playerScore === computerScore) {
+            console.log(playerScore + ' to ' + computerScore + ` It's a TIE!`);
+        }
+        else console.log(playerScore + ' to ' + computerScore + ' YOU LOSE!!');
+    }
+
+
+    function computerPlay() {
+        let rps = ['Rock', 'Paper', 'Scissor'];
+        let randomSelection = Math.floor(Math.random() * rps.length);
+        let computerSelection = rps[randomSelection];
+        return computerSelection
+    }
+
+
+
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Scissor') {
+            console.log(playerSelection, computerSelection, 'Your score:' + ++playerScore, 'Computer score:' + computerScore);
+            alert("Rock beats Scissor - YOU WIN!!");
+        } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Paper') {
+            console.log(playerSelection, computerSelection, 'Your score:' + playerScore, 'Computer score:' + ++computerScore);
+            alert("Paper beats rock - YOU LOSE!!");
+        } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Rock') {
+            console.log(playerSelection, computerSelection, 'Player score:' + playerScore, 'Computer score: ' + computerScore);
+            alert("IT'S A TIE!");
+        } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Rock') {
+            console.log(playerSelection, computerSelection, 'Your score:' + ++playerScore, 'Computer score:' + computerScore);
+            alert("Paper beats rock - YOU WIN!!");
+        } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Scissor') {
+            console.log(playerSelection, computerSelection, 'Your score:' + playerScore, 'Computer score:' + ++computerScore);
+            alert("Scissor beats paper - YOU LOSE!!");
+        } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Paper') {
+            console.log(playerSelection, computerSelection, 'Player score:' + playerScore, 'Computer score: ' + computerScore);
+            alert("IT'S A TIE!");
+        } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'Rock') {
+            console.log(playerSelection, computerSelection, 'Your score:' + playerScore, 'Computer score:' + ++computerScore);
+            alert("Rock beats scissor, YOU LOSE!!");
+        } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'Paper') {
+            console.log(playerSelection, computerSelection, 'Your score:' + ++playerScore, 'Computer score: ' + computerScore);
+            alert("Scissor beats paper - YOU WIN!!");
+        } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'Scissor') {
+            console.log(playerSelection, computerSelection, 'Player score:' + playerScore, 'Computer score: ' + computerScore);
+            alert("IT'S A TIE!");
+
+        } else return null;
+
+
+    }
+
+
+
+
+    playGame();
+
+
+
+</script>
