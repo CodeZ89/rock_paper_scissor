@@ -1,7 +1,8 @@
 <script>
     let playerScore = 0;
     let computerScore = 0;
-    const computerSelection = computerPlay();
+
+
 
     function playGame() {
 
@@ -22,12 +23,8 @@
 
 
     function computerPlay() {
-        let rps = ['Rock', 'Paper', 'Scissor'];
-        let randomSelection = Math.floor(Math.random() * rps.length);
-        let computerSelection = rps[randomSelection];
-        return computerSelection
+        return rps[~~(Math.floor(Math.random() * rps.length))];
     }
-
 
 
 
@@ -64,8 +61,8 @@
 
 
     }
-
-
+    const rps = ['Rock', 'Paper', 'Scissor'];
+    const computerSelection = computerPlay();
 
 
     playGame();
