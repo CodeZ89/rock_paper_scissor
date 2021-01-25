@@ -36,11 +36,17 @@ function playRound(playerSelection) {
         document.getElementById('scoreReport').innerText = `Loki beats Odin! ` + ++playerScore + ' to ' + computerScore;
     } else if (playerSelection === 'scissor' && computerSelection === 'scissor') {
         document.getElementById('scoreReport').innerText = `It's a tie! ` + playerScore + ' to ' + computerScore;
-    } else if (playerScore === scoreToWin) {
-        document.getElementById('scoreReport').innerText = 'YOU WIN. ' + playerScore + ' to ' + computerScore;
-    } else if (computerScore === scoreToWin) {
-        document.getElementById('scoreReport').innerText = 'YOU LOSE. ' + playerScore + ' to ' + computerScore;
     } else console.log('error');
+
+    if (playerScore === 5) {
+        alert('YOU WIN! ' + playerScore + ' to ' + computerScore);
+        document.location.reload();
+
+    } else if (computerScore === 5) {
+        alert('YOU LOSE ' + playerScore + ' to ' + computerScore);
+        document.location.reload();
+
+    }
 }
 
 
