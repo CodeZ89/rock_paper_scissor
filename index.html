@@ -1,72 +1,23 @@
-<script>
-    let playerScore = 0;
-    let computerScore = 0;
+<!DOCTYPE html>
+<html>
+<title>Battle for Asgard</title>
 
+<body id='body'>
+    <header id='theBattle'>The Battle for Asgard Begins Now!</header>
+    <h2 id='character'> Choose Your Character! :</h2>
+    <div id='buttons'>
+        <input type='image' src='thor.png' id='thor' class="playerMove" data-move="rock" />
+        <input type='image' src='odin.png' id='odin' class="playerMove" data-move='paper'>
+        <input type='image' src='loki.png' id='loki' class="playerMove" data-move='scissor' />
 
+    </div>
+    <div id='output'>
+        <h2 id='scoreReport'>Player Score: 0 Computer Score: 0</h2>
+    </div>
 
-    function playGame() {
+    </div>
+</body>
 
-        for (i = 0; i < 5; i++) {
-            let answer = prompt("Rock, Paper, Scissor, Shoot!:");
-            let playerSelection = answer;
-            playRound(playerSelection, computerSelection);
-            computerPlay();
+<script type='text/javascript' src='script.js'></script>
 
-        }
-        if (playerScore > computerScore) {
-            console.log(playerScore + ' to ' + computerScore + ' YOU WIN!!')
-        } else if (playerScore === computerScore) {
-            console.log(playerScore + ' to ' + computerScore + ` It's a TIE!`);
-        }
-        else console.log(playerScore + ' to ' + computerScore + ' YOU LOSE!!');
-    }
-
-
-    function computerPlay() {
-        return rps[~~(Math.floor(Math.random() * rps.length))];
-    }
-
-
-
-    function playRound(playerSelection, computerSelection) {
-        if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Scissor') {
-            console.log(playerSelection, computerSelection, 'Your score:' + ++playerScore, 'Computer score:' + computerScore);
-            alert("Rock beats Scissor - YOU WIN!!");
-        } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Paper') {
-            console.log(playerSelection, computerSelection, 'Your score:' + playerScore, 'Computer score:' + ++computerScore);
-            alert("Paper beats rock - YOU LOSE!!");
-        } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Rock') {
-            console.log(playerSelection, computerSelection, 'Player score:' + playerScore, 'Computer score: ' + computerScore);
-            alert("IT'S A TIE!");
-        } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Rock') {
-            console.log(playerSelection, computerSelection, 'Your score:' + ++playerScore, 'Computer score:' + computerScore);
-            alert("Paper beats rock - YOU WIN!!");
-        } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Scissor') {
-            console.log(playerSelection, computerSelection, 'Your score:' + playerScore, 'Computer score:' + ++computerScore);
-            alert("Scissor beats paper - YOU LOSE!!");
-        } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Paper') {
-            console.log(playerSelection, computerSelection, 'Player score:' + playerScore, 'Computer score: ' + computerScore);
-            alert("IT'S A TIE!");
-        } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'Rock') {
-            console.log(playerSelection, computerSelection, 'Your score:' + playerScore, 'Computer score:' + ++computerScore);
-            alert("Rock beats scissor, YOU LOSE!!");
-        } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'Paper') {
-            console.log(playerSelection, computerSelection, 'Your score:' + ++playerScore, 'Computer score: ' + computerScore);
-            alert("Scissor beats paper - YOU WIN!!");
-        } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'Scissor') {
-            console.log(playerSelection, computerSelection, 'Player score:' + playerScore, 'Computer score: ' + computerScore);
-            alert("IT'S A TIE!");
-
-        } else return null;
-
-
-    }
-    const rps = ['Rock', 'Paper', 'Scissor'];
-    const computerSelection = computerPlay();
-
-
-    playGame();
-
-
-
-</script>
+</html>
